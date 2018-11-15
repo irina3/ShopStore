@@ -1,0 +1,25 @@
+<div>
+  <div class="container">
+    <div class="header-content jumbotron row">
+      <div class="header-logo col-md-6">
+        <i class="header-icon fas fa-glass-martini-alt"></i>
+        <h1>Online Store!</h1>
+      </div>
+
+      <div class="login-section col-md-6">
+        <app-login-page (getToken)="accessToken($event)"></app-login-page>
+      </div>
+      <div  *ngIf="token !== '' " class="shop-card col-md-12" (click)="goShoping()">
+        <i class="fas fa-shopping-cart"></i>
+        <span>{{+quantity}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet *ngIf="token !== '' "></router-outlet>
+<app-registration-page *ngIf="token === ''"></app-registration-page>
+
+
+
+
+

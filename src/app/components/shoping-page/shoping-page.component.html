@@ -1,0 +1,30 @@
+<div>
+  <div class="container">
+    <app-category (getProductsByCategory)="accessProducts($event)"></app-category>
+    <div class="card-columns">
+      <div class="product card" *ngFor="let product of products">
+        <img src="{{product.url}}" alt="{{product.name}}">
+        <div class="card-body">
+          <h5>{{product.name}}</h5>
+          <p>{{product.description}}</p>
+          <p>
+            <small>{{'Price:'}} {{product.price}}{{'$'}}</small>
+          </p>
+          <p>
+            <small>
+              {{'Quantity:'}}
+            </small>
+            <input class="quantity-input form-control " #quantity type="number" min="1" (change)="valueChange($event.target.value)" value="{{1}}" id="inputId">
+          </p>
+          <!--<button class="btn btn-primary" type="button" (click)="sendQuantity(quantity.value, product.id)">{{'Add to card'}}</button>-->
+          <button class="btn btn-secondary" *ngIf="this.storeService.checkAddProduct(product.id)"  (click)="removeProduct(product.id)" type="button">{{'Remove'}}</button>
+        </div>
+      </div>
+      <div>
+        <h5>
+          Total Price:{{totalPrice}}
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>

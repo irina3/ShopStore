@@ -1,0 +1,16 @@
+.card-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .product{
+    width: 18rem;
+    padding-top: 5px;
+    text-align: center;
+    margin: 40px;
+    margin-top: 0px;
+    .quantity-input {
+      max-width: 75px;
+      display: inline-block;
+    }
+  }
+}
